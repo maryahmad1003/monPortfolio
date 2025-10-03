@@ -1,7 +1,7 @@
 import { Mail, Phone, Github, Linkedin } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
-const Contact = () => {
+const Contact = ({ onOpenQuoteModal }) => {
   const contactMethods = [
     {
       icon: Phone,

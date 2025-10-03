@@ -1,7 +1,7 @@
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
-const Hero = () => {
+const Hero = ({ onOpenQuoteModal }) => {
   return (
     <section id="hero" className="h-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-black dark:to-gray-900 pt-16">
       <div className="container mx-auto px-6 py-20">
@@ -42,12 +42,12 @@ const Hero = () => {
               </a>
             </div>
 
-            <a
-              href="#contact"
+            <button
+              onClick={onOpenQuoteModal}
               className="bg-green-600 dark:bg-green-700 text-white px-8 py-3 rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               Demander un devis
-            </a>
+            </button>
           </div>
 
           {/* Right Column */}

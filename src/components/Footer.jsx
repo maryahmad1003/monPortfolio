@@ -1,38 +1,42 @@
 import { Heart, ChevronDown, MessageCircle } from 'lucide-react';
 
-const Footer = () => {
+const Footer = ({ activeSection }) => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-black text-white py-12 relative">
       <div className="container mx-auto px-6">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-8">
-          {/* Left Section */}
-          <div className="flex items-center justify-center md:justify-start space-x-3">
-            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
+        {activeSection === 'hero' && (
+          <>
+            {/* Main Footer Content */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-8">
+              {/* Left Section */}
+              <div className="flex items-center justify-center md:justify-start space-x-3">
+                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">P</span>
+                </div>
+                <span className="text-xl font-light">Portfolio</span>
+              </div>
+
+              {/* Center Section */}
+              <div className="text-center">
+                <p className="text-gray-300 text-lg font-light italic">
+                  Créé avec ❤️ et beaucoup de ☕
+                </p>
+              </div>
+
+              {/* Right Section */}
+              <div className="text-center md:text-right">
+                <p className="text-gray-400 text-sm mb-2">
+                  © {currentYear} Mary Vonne Diallo. Tous droits réservés.
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Développé avec React, Framer Motion et Tailwind CSS.
+                </p>
+              </div>
             </div>
-            <span className="text-xl font-light">Portfolio</span>
-          </div>
-
-          {/* Center Section */}
-          <div className="text-center">
-            <p className="text-gray-300 text-lg font-light italic">
-              Créé avec ❤️ et beaucoup de ☕
-            </p>
-          </div>
-
-          {/* Right Section */}
-          <div className="text-center md:text-right">
-            <p className="text-gray-400 text-sm mb-2">
-              © {currentYear} Mary Vonne Diallo. Tous droits réservés.
-            </p>
-            <p className="text-gray-500 text-xs">
-              Développé avec React, Framer Motion et Tailwind CSS.
-            </p>
-          </div>
-        </div>
+          </>
+        )}
 
         {/* Bottom Section */}
         <div className="flex items-center justify-between pt-8 border-t border-gray-800">

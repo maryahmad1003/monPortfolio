@@ -9,15 +9,17 @@ import Education from './components/Education';
 import Interests from './components/Interests';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import QuoteModal from './components/QuoteModal';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const renderActiveSection = () => {
     console.log('Rendering section:', activeSection);
     switch (activeSection) {
       case 'hero':
-        return <Hero />;
+        return <Hero onOpenQuoteModal={() => setIsModalOpen(true)} />;
       case 'about':
         return <About />;
       case 'skills':
@@ -31,9 +33,9 @@ function App() {
       case 'interests':
         return <Interests />;
       case 'contact':
-        return <Contact />;
+        return <Contact onOpenQuoteModal={() => setIsModalOpen(true)} />;
       default:
-        return <Hero />;
+        return <Hero onOpenQuoteModal={() => setIsModalOpen(true)} />;
     }
   };
 
@@ -45,7 +47,8 @@ function App() {
           {renderActiveSection()}
         </div>
       </main>
-      <Footer />
+      <Footer activeSection={activeSection} />
+      <QuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
